@@ -7,23 +7,26 @@ app = func.FunctionApp()
 
 # Get started by running the following code to create a function using a HTTP trigger.
 
-@app.function_name(name="HttpTrigger1")
+# Get started by running the following code to create a function using a HTTP trigger.
+
+@app.function_link(link="HttpTrigger1")
 @app.route(route="hello")
 def test_function(req: func.HttpRequest) -> func.HttpResponse:
       logging.info('Python HTTP trigger function processed a request.')
-      name = req.params.get('name')
-      if not name:
+      link = req.params.get('link')
+      if not link:
          try:
              req_body = req.get_json()
          except ValueError:
              pass
          else:
-             name = req_body.get('name')
+             link = req_body.get('link')
 
-      if name:
-         return func.HttpResponse(f"Hello, {name}. This HTTP triggered function executed successfully.")
+      if link:
+      	 # call function
+         return func.HttpResponse(f"Link is, {link}. This HTTP triggered function executed successfully.")
       else:
          return func.HttpResponse(
-              "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response.",
+              "This HTTP triggered function executed successfully. Pass a link in the query string or in the request body fto search for clip.",
               status_code=200
          )
