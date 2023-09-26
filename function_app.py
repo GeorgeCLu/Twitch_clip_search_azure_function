@@ -5,7 +5,19 @@ app = func.FunctionApp()
 
 # Learn more at aka.ms/pythonprogrammingmodel
 
-# Get started by running the following code to create a function using a HTTP trigger.
+def website_clip_recover(tracker_url):
+    print("tracker_url is", tracker_url)
+    if "streamscharts" in tracker_url:
+    	print("streamschart")
+    elif "twitchtracker" in tracker_url:
+    	print("twitchtracker")
+    elif "sullygnome" in tracker_url:
+    	print("sullygnome")
+    else:
+        print("Link not supported.. Returning to main menu.")
+        return
+    #remove after testing
+    return
 
 # Get started by running the following code to create a function using a HTTP trigger.
 
